@@ -22,7 +22,7 @@ export class MyComponentComponent implements OnInit {
 
   ngOnInit(): void {
     this.editorOptions = {
-      autofocus: false,
+      autofocus: true,
       iconlibrary: 'fa',
       savable: false,
       onShow: (e) => this.bsEditorInstance = e,

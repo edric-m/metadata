@@ -1,1 +1,7 @@
-<p>metadata works!</p>
+<input type="text" [(ngModel)]="url" (keyup.enter)="getHtml()" style="width: 600px;">
+<button (click)="getHtml()">Go</button>
+<div style="width: 600px;">
+    <h1>{{ title }}</h1>
+    <img [src]="image" style="width: 200px;">
+    <p style="padding-top: 2%;">{{ description }}</p>
+</div>
