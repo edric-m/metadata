@@ -24,7 +24,7 @@ export class MetadataComponent implements OnInit {
   title;
   description;
   image;
-  url = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions';
+  url = 'https://stackoverflow.com/';
 
   constructor(private http: HttpClient) { }
 
@@ -66,30 +66,21 @@ export class MetadataComponent implements OnInit {
     // find meta tags and add them to result
     html.match(re).forEach(element => {
       if (element.includes('title')) {
-        result.title = element
-          .replace('content="', '')
-          .replace('title', '')
-          .replace('"', '')
-          .replace(' ', '')
-          .replace(/itemprop="[^"]*/g, '');
+        if (result.title === '') {
+          result.title = this.removeCommon(element)
+            .replace('title', '');
+        }
       }
       if (element.includes('description')) {
-        result.description = element
-          .replace('content=', '')
-          .replace('description', '')
-          .replace('"', '')
-          .replace(' ', '')
-          .replace(/itemprop="[^"]*/g, '');
+        if (result.description === '') {
+          result.description = this.removeCommon(element)
+            .replace('description', '');
+        }
       }
       if (element.includes('image')) {
         if (result.imageUrl === '') {
-          result.imageUrl = element
-            .replace('content=', '')
+          result.imageUrl = this.removeCommon(element)
             .replace('image', '')
-            .replace(/itemprop="[^"]*/g, '')
-            .replace('"', '')
-            .replace('/>', '')
-            .replace('>', '')
             .replace(/\s/g, '');
         }
       }
@@ -98,9 +89,13 @@ export class MetadataComponent implements OnInit {
     return result;
   }
 
-  // removeCommon(info: string): string {
-  //   return info
-  //     .replace;
-  // }
-
+  removeCommon(info: string): string {
+    return (info
+      .replace('content=', '')
+      .replace('"', '')
+      .replace(' ', '')
+      .replace('/>', '')
+      .replace('>', ''))
+      .replace(/itemprop="[^"]*/g, '');
+  }
 }
