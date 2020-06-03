@@ -35,28 +35,28 @@ export class MetadataComponent implements OnInit {
   //   console.log(metadata);
   //   return metadata;
   // });
-    // this.getHtml();
+    this.getHtml();
   }
 
-  // getHtml() {
-  //   this.getRawData()
-  //   .subscribe(
-  //     data => {
-  //       const temp = this.parseForMetadata(data);
-  //       this.title = temp.title.replace(/"/g, '');
-  //       this.description = temp.description.replace(/"/g, '');
-  //       this.image = temp.imageUrl.replace(/"/g, '');
-  //       console.log(data);
-  //     },
-  //     error => console.log(error)
-  //   );
-  // }
+  getHtml() {
+    this.getRawData()
+    .subscribe(
+      data => {
+        const temp = this.parseForMetadata(data);
+        this.title = temp.title.replace(/"/g, '');
+        this.description = temp.description.replace(/"/g, '');
+        this.image = temp.imageUrl.replace(/"/g, '');
+        console.log(data);
+      },
+      error => console.log(error)
+    );
+  }
 
-  // getRawData(): Observable<any> {
-  //   const api = this.url;
-  //   const corsProxy = 'https://cors-anywhere.herokuapp.com/';
-  //   return this.http.get(corsProxy + api, { responseType: 'text' });
-  // }
+  getRawData(): Observable<any> {
+    const api = this.url;
+    const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+    return this.http.get(corsProxy + api, { responseType: 'text' });
+  }
 
   parseForMetadata(html: string): Meta {
     const result: Meta = { title: '', description: '', imageUrl: ''};
