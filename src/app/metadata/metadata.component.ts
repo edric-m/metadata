@@ -38,19 +38,19 @@ export class MetadataComponent implements OnInit {
     // this.getHtml();
   }
 
-  getHtml() {
-    this.getRawData()
-    .subscribe(
-      data => {
-        const temp = this.parseForMetadata(data);
-        this.title = temp.title.replace(/"/g, '');
-        this.description = temp.description.replace(/"/g, '');
-        this.image = temp.imageUrl.replace(/"/g, '');
-        console.log(data);
-      },
-      error => console.log(error)
-    );
-  }
+  // getHtml() {
+  //   this.getRawData()
+  //   .subscribe(
+  //     data => {
+  //       const temp = this.parseForMetadata(data);
+  //       this.title = temp.title.replace(/"/g, '');
+  //       this.description = temp.description.replace(/"/g, '');
+  //       this.image = temp.imageUrl.replace(/"/g, '');
+  //       console.log(data);
+  //     },
+  //     error => console.log(error)
+  //   );
+  // }
 
   // getRawData(): Observable<any> {
   //   const api = this.url;
