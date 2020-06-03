@@ -35,7 +35,7 @@ export class MetadataComponent implements OnInit {
   //   console.log(metadata);
   //   return metadata;
   // });
-    this.getHtml();
+    // this.getHtml();
   }
 
   getHtml() {
