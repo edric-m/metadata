@@ -52,11 +52,11 @@ export class MetadataComponent implements OnInit {
     );
   }
 
-  getRawData(): Observable<any> {
-    const api = this.url;
-    const corsProxy = 'https://cors-anywhere.herokuapp.com/';
-    return this.http.get(corsProxy + api, { responseType: 'text' });
-  }
+  // getRawData(): Observable<any> {
+  //   const api = this.url;
+  //   const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+  //   return this.http.get(corsProxy + api, { responseType: 'text' });
+  // }
 
   parseForMetadata(html: string): Meta {
     const result: Meta = { title: '', description: '', imageUrl: ''};
